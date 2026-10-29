@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\NominaSemanal;
 use App\Models\Atencion;
 use App\Models\AtencionServicio;
 use App\Models\Paciente;
@@ -53,6 +54,10 @@ class DatabaseSeeder extends Seeder
             }
 
             $atencion->update(['total' => $total]);
+        }
+
+        foreach ($podologos as $podologo) {
+            NominaSemanal::factory()->create(['podologo_id' => $podologo->id]);
         }
     }
 }
